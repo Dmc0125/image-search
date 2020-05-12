@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "name": "api-image-search",
+  "builds": [
+    {
+      "src": "main.js",
+      "use": "@now/node-server"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/.*",
+      "dest": "main.js"
+    }
+  ],
+  "alias": [
+    "api-image-search"
+  ]
+}
