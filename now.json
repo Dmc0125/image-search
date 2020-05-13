@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "name": "api-image-search",
   "builds": [
     {
       "src": "main.js",
@@ -13,7 +12,4 @@
       "dest": "main.js"
     }
   ],
-  "alias": [
-    "api-image-search"
-  ]
 }

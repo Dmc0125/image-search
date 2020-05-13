@@ -27,8 +27,7 @@ app.get('/search', async (req, res) => {
     const titleFormatted = formatTitle(title);
 
     return {
-      title,
-      titleFormatted,
+      title: titleFormatted,
       author,
       url,
       source: `https://reddit.com${permalink}`,
