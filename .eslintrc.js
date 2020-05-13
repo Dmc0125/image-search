@@ -15,5 +15,7 @@ module.exports = {
     ecmaVersion: 11,
   },
   rules: {
+    'arrow-parens': 0,
+    'no-use-before-define': 0,
   },
 };

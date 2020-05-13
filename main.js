@@ -20,12 +20,31 @@ app.get('/search', async (req, res) => {
   const response = await fetch(`${BASE_URL}${q}`);
   const { data: { children } } = await response.json();
 
-  const images = children.map(({ data: { url } }) => url);
+  const images = children.map(child => {
+    // eslint-disable-next-line object-curly-newline
+    const { url, title, author, permalink } = child.data;
+
+    const titleFormatted = formatTitle(title);
+
+    return {
+      title,
+      titleFormatted,
+      author,
+      url,
+      source: `https://reddit.com${permalink}`,
+    };
+  });
 
   res.json({
     images,
   });
 });
+
+function formatTitle(title) {
+  const bracketPos = title.indexOf('[');
+
+  return title.slice(0, bracketPos).trim();
+}
 
 const port = process.env.PORT || 4040;
 app.listen(port, () => {
